@@ -1,15 +1,11 @@
 pipeline {
-    agent any
-tools {
-        maven 'apache-maven-3.5.4'
-        jdk 'jdk8'
-    
+    agent any    
     stages {
-        stage ('build Stage') {
+        stage ('compile Stage') {
 
             steps {
                 withMaven(maven : 'maven_3_5_4') {
-                    sh 'mvn build'
+                    sh 'mvn clean compile'
                 }
             }
         }
@@ -33,4 +29,4 @@ tools {
         }
     }
 }
-}
+
